@@ -8,6 +8,7 @@ const map = document.createElement("div");
 map.setAttribute("class", "map");
 
 setMap();
+
 function setMap() {
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
@@ -21,7 +22,7 @@ function setMap() {
                     click++;
                     item.innerText = (turn === 1 ? "O" : "X");
 
-                    // checkWin();
+                    winCondition();
 
                     turn = turn === 1 ? 2 : 1;
 
@@ -33,10 +34,10 @@ function setMap() {
     }
 }
 
-function checkWin() {
+function winCondition() {
     checkrow();
     checkcolumn();
-    checkdiag();
+    checkdiagonal();
     checkreverse();
 
     if (win !== 0) {
@@ -47,32 +48,107 @@ function checkWin() {
     console.log("click : ", click);
     console.log("win : ", win);
 
-    if (win === 0 && click === size*size) {
+    if (win === 0 && click === size * size) {
         alert("DRAW !");
         reset();
     }
 }
 
 function checkrow() {
-    
+    for (let i = 0; i < size; i++) {
+        let count = 0;
+        for (let j = 0; j < size; j++) {
+            const target = `y${i}x${j}`;
+            const box = map.querySelector(`#${target}`);
+            const text = box.innerText;
+            if (text === (turn === 1 ? "O" : "X")) {
+                count++;
+                console.log("count : ", count);
+            } else {
+                count = 0;
+            }
 
+            if (count == 5) {
+                win = turn;
+                console.log("win : ", win);
+            }
+        }
+    }
 }
 
 function checkcolumn() {
+    for (let i = 0; i < size; i++) {
+        let count = 0;
+        for (let j = 0; j < size; j++) {
+            const target = `y${j}x${i}`;
+            const box = map.querySelector(`#${target}`);
+            const text = box.innerText;
 
-    
+            if (text === (turn === 1 ? "O" : "X")) {
+                count++;
+                console.log("count : ", count);
+            } else {
+                count = 0;
+            }
+
+            if (count == 5) {
+                win = turn;
+                console.log("win : ", win);
+            }
+        }
+    }
 }
 
-function checkdiag() {
+function checkdiagonal() {
+    for (let i = 0; i < size - 4; i++) {
+        for (let j = 0; j < size - 4; j++) {
+            let count = 0;
+            for (let k = 0; k < 5; k++) {
+                const target = `y${i + k}x${j + k}`;
+                const box = map.querySelector(`#${target}`);
+                const text = box.innerText;
 
+                if (text === (turn === 1 ? "O" : "X")) {
+                    count++;
+                    console.log("count : ", count);
+                } else {
+                    count = 0;
+                }
 
+                if (count == 5) {
+                    win = turn;
+                    console.log("win : ", win);
+                }
+            }
+        }
+    }
 }
 
 function checkreverse() {
+    for (let i = 4; i < size; i++) {
+        for (let j = 0; j < size - 4; j++) {
+            let count = 0;
+            for (let k = 0; k < 5; k++) {
+                const target = `y${j + k}x${i - k}`;
+                console.log(target);
+                const box = map.querySelector(`#${target}`);
+                const text = box.innerText;
 
+                if (text === (turn === 1 ? "O" : "X")) {
+                    count++;
+                    console.log("count : ", count);
+                } else {
+                    count = 0;
+                }
 
+                if (count == 5) {
+                    win = turn;
+                    console.log("win : ", win);
+                }
+            }
+        }
+    }
 }
-
 
 function reset() {
     turn = 1;
