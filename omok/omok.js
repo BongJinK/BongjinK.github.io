@@ -20,19 +20,12 @@ function setMap() {
             item.addEventListener("click", e => {
                 if (item.innerText === "") {
                     click++;
-                    let img = document.createElement("img");
-                    
+                    item.innerText = (turn === 1 ? "O" : "X");
 
-                    if(turn === 1){
-                        img.src = 'resources/검은돌.jpg';
-                    }else{
-                        img.src = 'resources/흰돌.jpg';
-                    }
-
-                    item.appendChild(img);
                     winCondition();
 
                     turn = turn === 1 ? 2 : 1;
+
                 }
             })
             map.append(item);
