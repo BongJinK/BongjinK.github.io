@@ -18,6 +18,8 @@ h1{
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    margin: 0 100px 0 100px;
+    justify-content: space-around;
 }
 
 .result-card{

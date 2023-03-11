@@ -26,6 +26,11 @@ body{
 }
 
 img{
+    width: 35px;
+    height: 35px;
+}
+
+.stone{
     width: 17px;
     height: 17px;
 }
@@ -43,8 +48,10 @@ img{
     width: 48px;
     height: 48px;
     font-size: 24px;
-    text-align: center;
-    line-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* line-height: 50px; */
 }
 
 .map>.box:not(:nth-child(n+91)){

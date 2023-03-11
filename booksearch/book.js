@@ -13,8 +13,8 @@
 
 let page = 1;
 
-
 const query = document.querySelector(".query");
+// const container = document.querySelector(".container");
 
 const searchBox = document.querySelector(".search-box");
 searchBox.addEventListener("submit", e => {
@@ -23,10 +23,15 @@ searchBox.addEventListener("submit", e => {
         page = 1;
         searchRequest(query.value, page);
     }
+    query.value = "";
 })
 
-
 function searchRequest(query,page) {
+    // const imgSrc = "1";
+    // const title = "1";
+    // const money = 0;
+    // const name = "1";
+    // const company = "1";
 
     console.log("query : ", query);
 
@@ -39,7 +44,6 @@ function searchRequest(query,page) {
         }
     }).done(function (response) {
         // container 안에 
-
         /* 
         <div class="result-card">
             <img class="book-img" src="" alt="">
@@ -51,8 +55,43 @@ function searchRequest(query,page) {
             </p>
         </div>
          */
-
         // 새로 생성 및 구성 완료한 result - card 요소를 추가
+
+        // const div = document.createElement("div");
+        // const img = document.createElement("img");
+        // const h4 = document.createElement("h4");
+        // const description = document.createElement("p");
+        // const info = document.createElement("p");
+        // const price = document.createElement("span");
+        // const author = document.createElement("span");
+        // const publisher = document.createElement("span");
+
+        // div.setAttribute("class", "result-card");
+        // img.setAttribute("class", "book-img");
+        // img.setAttribute("src", `${imgSrc}`);
+        // h4.setAttribute("class", "book-title");
+        // description.setAttribute("class", "book-description");
+        // info.setAttribute("class", "book-info");
+        // price.setAttribute("class", "price");
+        // author.setAttribute("class", "author");
+        // publisher.setAttribute("class", "publisher");
+
+
+        // // 변수에 뭐 넣을지 모르겠습니다.
+        // description.innerText = "ㅇㅇㅇ";
+        // h4.innerText = `${title}`;
+        // price.innerText = `${money}원`;
+        // publisher.innerText = ` ${company}`;
+        // author.innerText = `${name} |`;
+
+        // div.append(img);
+        // div.append(h4);
+        // div.append(price);
+        // div.append(description);
+        // div.append(info);
+        // info.append(author);
+        // info.append(publisher);
+        // container.append(div);
 
         console.log(response);
     });
