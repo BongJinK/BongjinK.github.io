@@ -107,6 +107,8 @@ function searchRequest(query,page) {
         console.log(test111.publisher);
         console.log(test111.title);
         console.log(test111.price);
+
+        console.log(test111);
     });
 }
 
