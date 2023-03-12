@@ -44,9 +44,6 @@ function searchRequest(query,page) {
             "Authorization": "KakaoAK f38b9fe2c66283c909a3b11ba777576c"
         }
     }).done(function (response) {
-        // const templ = response;
-        // console.log(templ);
-
         // container 안에 
         /* 
         <div class="result-card">
@@ -60,8 +57,6 @@ function searchRequest(query,page) {
         </div>
          */
         // 새로 생성 및 구성 완료한 result - card 요소를 
-        // let author = documnets[0].authors;
-        // console.log(author);
 
         // const div = document.createElement("div");
         // const img = document.createElement("img");
@@ -100,15 +95,6 @@ function searchRequest(query,page) {
         // container.append(div);
 
         console.log(response); 
-        console.log(response.documents);
-        var test111 = response.documents[0];
-        console.log(test111.authors);
-        console.log(test111.thumbnail);
-        console.log(test111.publisher);
-        console.log(test111.title);
-        console.log(test111.price);
-
-        console.log(test111);
     });
 }
 
