@@ -4,7 +4,6 @@
 // ㄴ Open API : 다양한 기업에서 공익의 목적 또는 다른 이유로 무료로 인터페이스를 이용할 수 있게 제공
 // ㄴ Private API : 유로
 
-
 // $. => jquery 약어
 // ajax
 // ㄴ 비동기 방식으로 페이지의 일부 정보를 갱신 할 수 있는 기술
@@ -35,6 +34,11 @@ function searchRequest(query,page) {
 
     console.log("query : ", query);
 
+
+
+
+    // url : client가 요청을 보낼 SERVER URL 주소
+    // .done : 요청 성공시 받아온 요청 데이터가 done() 메소드로 전달
     $.ajax({
         "url": `https://dapi.kakao.com/v3/search/book?query=${query}&page=${page}&size=50&target=title`,
         "method": "GET",
@@ -55,7 +59,9 @@ function searchRequest(query,page) {
             </p>
         </div>
          */
-        // 새로 생성 및 구성 완료한 result - card 요소를 추가
+        // 새로 생성 및 구성 완료한 result - card 요소를 
+        let author = documnet[0].authors;
+        console.log(author);
 
         // const div = document.createElement("div");
         // const img = document.createElement("img");
@@ -93,7 +99,7 @@ function searchRequest(query,page) {
         // info.append(publisher);
         // container.append(div);
 
-        console.log(response);
+        console.log(response);        
     });
 }
 
