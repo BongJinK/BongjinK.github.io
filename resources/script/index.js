@@ -98,11 +98,23 @@ addProject(sample, "frontend", "cover", "center");
 
 const bookSearch = new Project(
     "/booksearch",
-    "https://em-content.zobj.net/thumbs/240/facebook/65/left-pointing-magnifying-glass_1f50d.png",
+    "resources/images/BookSearch.png",
     "Book Search",
     "Book Search and Inquiry Service",
     ['VanilaJS', 'jQeury', 'Kakao Search API'],
     ['2023.03.13', "2023.03.13"]
 );
 
+
 addProject(bookSearch, "frontend", "contain", "center");
+
+const omok = new Project(
+    "/omok",
+    "resources/images/Omok.png",
+    "Omok",
+    "Omok Game",
+    ['VanilaJS', 'HTML', 'CSS'],
+    ['2023.03.13', "2023.03.13"]
+);
+
+addProject(omok, "frontend", "contain", "center");
