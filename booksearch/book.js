@@ -11,6 +11,7 @@
 // -> jQuery.ajax() 메소드를 활용
 
 let page = 1;
+let pagesize = 50;
 
 const query = document.querySelector(".query");
 // const container = document.querySelector(".container");
@@ -30,7 +31,7 @@ function searchRequest(query, page) {
     // url : client가 요청을 보낼 SERVER URL 주소
     // .done : 요청 성공시 받아온 요청 데이터가 done() 메소드로 전달
     $.ajax({
-        "url": `https://dapi.kakao.com/v3/search/book?query=${query}&page=${page}&size=50&target=title`,
+        "url": `https://dapi.kakao.com/v3/search/book?query=${query}&page=${page}&size=${pagesize}&target=title`,
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -49,34 +50,68 @@ function searchRequest(query, page) {
         </div>
          */
 
+        // 검색창 부분
         $(".container").empty();
         let contents = '';
         for (let i = 0; i < response.documents.length; i++) {
             let object = response.documents[i];
-            contents += '<div class="result-card">';
-            contents += '<a href="' + object.url + '">';
-            contents += '<div class="img"><img class="book-img" src="' + object.thumbnail + '" alt=""></div>';
-            contents += '<h4 class="book-title">' + object.title + '</h4>';
-            contents += '</a>';
+            if (object.thumbnail !== "") {
+                contents += '<div class="result-card">';
+                contents += '<a href="' + object.url + '">';
+                contents += '<div class="img"><img class="book-img" src="' + object.thumbnail + '" alt=""></div>';
+                contents += '<h4 class="book-title">' + object.title + '</h4>';
+                contents += '</a>';
 
-
-            contents += '<span class="price">정가 : ' + object.price + '원</span>';
-            contents += '<p class="book-info">';
-            contents += '<span class="author">저자 : ' + object.authors + '</span>';
-            contents += ' | <span class="publisher">출판사 : ' + object.publisher + '</span></p></div>';
+                contents += '<span class="price">정가 : ' + object.price + '원</span>';
+                contents += '<p class="book-info">';
+                contents += '<span class="author">' + object.authors + '</span>';
+                contents += ' | <span class="publisher">' + object.publisher + '</span></p></div>';
+            }
         }
         $(".container").append(contents);
+
+
+        // 페이징 부분
+        
+        $(".paging").empty();
+        let pageContent = '';
+        let count = response.meta.pageable_count; // 검색한 결과 수 
+        // 검색한 결과 수에 따른 최대 검색페이지 수
+        // Math.ceil = 올림 (1.007) => 2
+        let pageCount = Math.ceil(count / pagesize); 
+
+        pageContent += '<img ';
+        if (page > 1) {
+            pageContent += 'class = "before"';
+            pageContent += 'src="resources/left_arrow.png"';
+        }
+        pageContent += '>';
+        pageContent += '<span>' + page + ' / ' + pageCount + '</span>';
+        pageContent += '<img ';
+        if(response.meta.is_end === false){
+            pageContent += 'class = "after"'; 
+            pageContent += 'src="resources/right_arrow.png"';
+        }
+        pageContent += '>';
+        $(".paging").append(pageContent);
+
+        // 페이지 이동 이벤트리스너
+        if( page > 1){
+            const before = document.querySelector(".before");
+            before.addEventListener("click", e => {
+                page--;
+                searchRequest(query, page);
+            })
+        }
+        if( response.meta.is_end === false){
+            const after = document.querySelector(".after");
+            after.addEventListener("click", e => {
+                page++;
+                searchRequest(query, page);
+            })
+        }
+
         console.log(response);
-
-        // count = 중복제외 검색결과 개수
-        // pazeSize = 한페이지에 보여질 검색결과 개수
-        // page = 현재 페이지 번호
-        // pageCount = 검색된 결과의 전체 페이지 수
-        // startIndex = 현재 페이지의 겸색결과 인덱스 번호
-        // endIndex = 현재 페이지의 검색결과 인덱스 번호
-
-
-
     });
 }
 

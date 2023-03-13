@@ -49,22 +49,16 @@ img.book-img {
     border: solid 0.5px black;
 }
 
+.paging{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
 
 h4.book-title{
     font-size: 14px;
@@ -74,4 +68,14 @@ h4.book-title{
 p, .price {
     font-size: 11px;
     margin-bottom: 3px;
+}
+
+img.before {
+    width: 30px;
+    margin-right: 10px;
+}
+
+img.after {
+    width: 30px;
+    margin-left: 10px;
 }
