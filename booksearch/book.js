@@ -25,15 +25,8 @@ searchBox.addEventListener("submit", e => {
     query.value = "";
 })
 
-function searchRequest(query,page) {
-    // const imgSrc = "1";
-    // const title = "1";
-    // const money = 0;
-    // const name = "1";
-    // const company = "1";
-
+function searchRequest(query, page) {
     console.log("query : ", query);
-
     // url : client가 요청을 보낼 SERVER URL 주소
     // .done : 요청 성공시 받아온 요청 데이터가 done() 메소드로 전달
     $.ajax({
@@ -49,50 +42,41 @@ function searchRequest(query,page) {
         <div class="result-card">
             <img class="book-img" src="" alt="">
             <h4 class="book-title">도서제목</h4>
-            <p class="book-description"> 도서상세정보</p>
             <span class="price">정가 : 10000원</span>
             <p class="book-info">
                 <span class="author">저자 : </span>|<span class="publisher">출판사</span>
             </p>
         </div>
          */
-        // 새로 생성 및 구성 완료한 result - card 요소를 
 
-        // const div = document.createElement("div");
-        // const img = document.createElement("img");
-        // const h4 = document.createElement("h4");
-        // const description = document.createElement("p");
-        // const info = document.createElement("p");
-        // const price = document.createElement("span");
-        // const author = document.createElement("span");
-        // const publisher = document.createElement("span");
+        $(".container").empty();
+        let contents = '';
+        for (let i = 0; i < response.documents.length; i++) {
+            let object = response.documents[i];
+            contents += '<div class="result-card">';
+            contents += '<a href="' + object.url + '">';
+            contents += '<div class="img"><img class="book-img" src="' + object.thumbnail + '" alt=""></div>';
+            contents += '<h4 class="book-title">' + object.title + '</h4>';
+            contents += '</a>';
 
-        // div.setAttribute("class", "result-card");
-        // img.setAttribute("class", "book-img");
-        // img.setAttribute("src", `${imgSrc}`);
-        // h4.setAttribute("class", "book-title");
-        // description.setAttribute("class", "book-description");
-        // info.setAttribute("class", "book-info");
-        // price.setAttribute("class", "price");
-        // author.setAttribute("class", "author");
-        // publisher.setAttribute("class", "publisher");
 
-        // description.innerText = "ㅇㅇㅇ";
-        // h4.innerText = `${title}`;
-        // price.innerText = `${money}원`;
-        // publisher.innerText = ` ${company}`;
-        // author.innerText = `${name} |`;
+            contents += '<span class="price">정가 : ' + object.price + '원</span>';
+            contents += '<p class="book-info">';
+            contents += '<span class="author">저자 : ' + object.authors + '</span>';
+            contents += ' | <span class="publisher">출판사 : ' + object.publisher + '</span></p></div>';
+        }
+        $(".container").append(contents);
+        console.log(response);
 
-        // div.append(img);
-        // div.append(h4);
-        // div.append(price);
-        // div.append(description);
-        // div.append(info);
-        // info.append(author);
-        // info.append(publisher);
-        // container.append(div);
+        // count = 중복제외 검색결과 개수
+        // pazeSize = 한페이지에 보여질 검색결과 개수
+        // page = 현재 페이지 번호
+        // pageCount = 검색된 결과의 전체 페이지 수
+        // startIndex = 현재 페이지의 겸색결과 인덱스 번호
+        // endIndex = 현재 페이지의 검색결과 인덱스 번호
 
-        console.log(response); 
+
+
     });
 }
 
