@@ -77,8 +77,6 @@ function searchRequest(query,page) {
         // author.setAttribute("class", "author");
         // publisher.setAttribute("class", "publisher");
 
-
-        // // 변수에 뭐 넣을지 모르겠습니다.
         // description.innerText = "ㅇㅇㅇ";
         // h4.innerText = `${title}`;
         // price.innerText = `${money}원`;
