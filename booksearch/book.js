@@ -61,7 +61,6 @@ function searchRequest(query, page) {
                 contents += '<div class="img"><img class="book-img" src="' + object.thumbnail + '" alt=""></div>';
                 contents += '<h4 class="book-title">' + object.title + '</h4>';
                 contents += '</a>';
-
                 contents += '<span class="price">정가 : ' + object.price + '원</span>';
                 contents += '<p class="book-info">';
                 contents += '<span class="author">' + object.authors + '</span>';
@@ -110,7 +109,6 @@ function searchRequest(query, page) {
                 searchRequest(query, page);
             })
         }
-
         console.log(response);
     });
 }
