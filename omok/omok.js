@@ -1,36 +1,39 @@
-const size = 10;
-let turn = 1; // player 번호 1,2 변화
-let win = 0; // !== 0 일시 승리자 player번호
-let click = 0; // === 100 && won === 0 draw
+const size = 14;
+let turn = 1;
+let win = 0;
+let click = 0;
 
-const root = document.getElementById("root");
-const map = document.createElement("div");
-map.setAttribute("class", "map");
+const container = document.querySelector(".container");
+let contents = '';
+contents += '<div class="play-container">';
+for (let i = 0; i < size; i++) {
+    for (let j = 0; j < size; j++) {
+        let id = `y${i}x${j}`;
+        contents += '<div class="box" id="' + id + '"></div>';
+    }
+}
+contents += '</div>';
+for (let i = 0; i < size + 1; i++) {
+    for (let j = 0; j < size + 1; j++) {
+        contents += '<div class="item"></div>';
+    }
+}
+contents += '</div>';
+container.innerHTML = contents;
 
-setMap();
+play();
 
-function setMap() {
-    for (let i = 0; i < size; i++) {
-        for (let j = 0; j < size; j++) {
-            let id = `y${i}x${j}`;
-            const item = document.createElement("div");
-            item.setAttribute("class", "box");
-            item.setAttribute("id", id);
-
-            item.addEventListener("click", e => {
-                if (item.innerText === "") {
-                    click++;
-                    item.innerText = (turn === 1 ? "O" : "X");
-
-                    winCondition();
-
-                    turn = turn === 1 ? 2 : 1;
-
-                }
-            })
-            map.append(item);
-        }
-        root.append(map);
+function play() {
+    const box = document.getElementsByClassName("box");
+    for (let i = 0; i < box.length; i++) {
+        box[i].addEventListener("click", e => {
+            if (e.target.className === "box") {
+                click++;
+                e.target.setAttribute("class", `player${turn}`);
+                winCondition();
+                turn = turn === 1 ? 2 : 1;
+            }
+        })
     }
 }
 
@@ -42,15 +45,9 @@ function winCondition() {
 
     if (win !== 0) {
         alert(`Player${win} WIN!!`);
-        reset();
     }
-
-    console.log("click : ", click);
-    console.log("win : ", win);
-
     if (win === 0 && click === size * size) {
         alert("DRAW !");
-        reset();
     }
 }
 
@@ -59,19 +56,14 @@ function checkrow() {
         let count = 0;
         for (let j = 0; j < size; j++) {
             const target = `y${i}x${j}`;
-            const box = map.querySelector(`#${target}`);
-            const text = box.innerText;
-            if (text === (turn === 1 ? "O" : "X")) {
+            const box = document.querySelector(`#${target}`);
+            if (box.className === `player${turn}`)
                 count++;
-                console.log("count : ", count);
-            } else {
+            else
                 count = 0;
-            }
 
-            if (count == 5) {
+            if (count == 5)
                 win = turn;
-                console.log("win : ", win);
-            }
         }
     }
 }
@@ -81,20 +73,14 @@ function checkcolumn() {
         let count = 0;
         for (let j = 0; j < size; j++) {
             const target = `y${j}x${i}`;
-            const box = map.querySelector(`#${target}`);
-            const text = box.innerText;
-
-            if (text === (turn === 1 ? "O" : "X")) {
+            const box = document.querySelector(`#${target}`);
+            if (box.className === `player${turn}`)
                 count++;
-                console.log("count : ", count);
-            } else {
+            else
                 count = 0;
-            }
 
-            if (count == 5) {
+            if (count == 5)
                 win = turn;
-                console.log("win : ", win);
-            }
         }
     }
 }
@@ -105,20 +91,14 @@ function checkdiagonal() {
             let count = 0;
             for (let k = 0; k < 5; k++) {
                 const target = `y${i + k}x${j + k}`;
-                const box = map.querySelector(`#${target}`);
-                const text = box.innerText;
-
-                if (text === (turn === 1 ? "O" : "X")) {
+                const box = document.querySelector(`#${target}`);
+                if (box.className === `player${turn}`)
                     count++;
-                    console.log("count : ", count);
-                } else {
+                else
                     count = 0;
-                }
 
-                if (count == 5) {
+                if (count == 5)
                     win = turn;
-                    console.log("win : ", win);
-                }
             }
         }
     }
@@ -130,21 +110,14 @@ function checkreverse() {
             let count = 0;
             for (let k = 0; k < 5; k++) {
                 const target = `y${j + k}x${i - k}`;
-                console.log(target);
-                const box = map.querySelector(`#${target}`);
-                const text = box.innerText;
-
-                if (text === (turn === 1 ? "O" : "X")) {
+                const box = document.querySelector(`#${target}`);
+                if (box.className === `player${turn}`)
                     count++;
-                    console.log("count : ", count);
-                } else {
+                else
                     count = 0;
-                }
 
-                if (count == 5) {
+                if (count == 5)
                     win = turn;
-                    console.log("win : ", win);
-                }
             }
         }
     }
@@ -156,3 +129,7 @@ function reset() {
     click = 0;
     location.reload();
 }
+
+
+// 29 : document.getElementByClassName("box") 메소드는 HTML문서의 "box"클래스를 가진
+// 모든 element를 반환 [ HTMLCollention 으로 반환 : 배열 ] 

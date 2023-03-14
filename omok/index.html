@@ -10,17 +10,15 @@
 </head>
 <body>
     <h1 class="title"> 오목게임 </h1>
-    <div class="player1"> player 1 
-        <img src="resources/blackstone.png" alt="검은돌"></div>
-    <div class="player2"> player 2 
-        <img src="resources/whitestone.png" alt="흰돌"></div>
-    <div id="root">
+    <div class="player">
+        <span>player 1</span> 
+        <img src="resources/blackstone.png" alt="검은돌">&nbsp;&nbsp;&nbsp;
+        <span>player 2</span> 
+        <img src="resources/whitestone.png" alt="흰돌">
     </div>
-    <!-- table 2개 position 값 absolute -->
+    <div class="container"></div>
     <button id="reset" onclick="reset()">Reset</button>
 
-    <!-- hint : css 속성, position : absolute 를 활용하면 -->
-    <!-- 2개의 맵을 겹쳐서 표현 할 수 있다. -->
     <script type="text/javascript" src="omok.js"></script>
 </body>
 </html>

@@ -1,71 +1,89 @@
 *{
-    margin : 0;
+    margin: 0;
     padding: 0;
+}
+
+.title{
+    margin: 10px 0 10px 0;
 }
 
 body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
-.title{
-    font-size: 40px;
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-
-.player1, .player2{
+.player>img{
+    width: 25px;
     height: 25px;
-    font-size: 20px;
-    margin-top: 5px;
 }
-.player2{
+
+.player{
+    font-size: 18px;
     margin-bottom: 15px;
 }
 
-img{
-    width: 17px;
-    height: 17px;
+.container{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    width: fit-content;
+    margin: auto;
+    
+    align-content: center;
+    margin-bottom: 15px;
+    position: relative;
 }
 
-.map{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 500px;
-    margin-top: 15px;
-    margin-bottom: 25px;
-    background-color: #FFCC66;
+.play-container{
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    width: fit-content;
+    margin: auto;
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.play-container>div {
+    border: solid 1px transparent;
+    width: 40px;
+    height: 40px;
+    text-align: center;
 }
 
 .box{
-    width: 48px;
-    height: 48px;
-    font-size: 48px;
-    text-align: center;
-    line-height: 50px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
 }
 
-.map>.box:not(:nth-child(n+91)){
-    border-bottom: solid 1px black;
+.box:hover {
+    border: 0.1px solid black; 
 }
 
-.map>.box:not(:nth-child(-n+10)){
-    border-top: solid 1px black;
+.player1{
+    border-radius: 100%;
+    background-color: black;
 }
 
-.map>.box:not(:nth-child(10n)){
-    border-right: solid 1px black;
+.player2{
+    border-radius: 100%;
+    background-color:white;
 }
 
-.map>.box:not(:nth-child(10n+1)){
-    border-left: solid 1px black;
+.item{
+    width: 40px;
+    height: 40px;
+    border: solid 1px black;
+    background-color: darkgoldenrod;
 }
 
 #reset{
     width: 130px;
     height: 50px;
     font-size: 25px;
+    font-weight: bold;
+    background-color: white;
 }

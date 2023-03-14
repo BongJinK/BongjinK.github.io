@@ -69,9 +69,7 @@ function searchRequest(query, page) {
         }
         $(".container").append(contents);
 
-
         // 페이징 부분
-        
         $(".paging").empty();
         let pageContent = '';
         let count = response.meta.pageable_count; // 검색한 결과 수 
@@ -112,11 +110,3 @@ function searchRequest(query, page) {
         console.log(response);
     });
 }
-
-
-
-
-
-
-
-
