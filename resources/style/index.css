@@ -90,7 +90,7 @@ hr {
 
 .project-img {
     height: 60%;
-    filter: grayscale(1);
+    /* filter: grayscale(1); */
     background-size: cover;
     background-color: lightgrey;
 }
