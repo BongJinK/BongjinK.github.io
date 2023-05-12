@@ -140,6 +140,9 @@ const LaundryGarden = new Project(
 
 addProject(LaundryGarden, "backend", "contain", "center");
 
+
+/////////////////////////////////////////////////////////////////////////
+
 const bookSearch = new Project(
     "/booksearch",
     "resources/images/BookSearch.png",
