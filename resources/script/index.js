@@ -109,7 +109,7 @@ addProject(Bank, "backend", "contain", "center");
 
 const CafeProject = new Project(
     "http://http://cafeproject.store/",
-    "/resources/images/composecoffee.png",
+    "/resources/images/cafe.png",
     "Cafe-Service",
     "Compose Coffee Clone",
     ['JSP','JSTL','Java 11','Tomcat 9','MySQL', 'JQuery'],
