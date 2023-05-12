@@ -109,7 +109,7 @@ addProject(Bank, "backend", "contain", "center");
 
 const rentCar = new Project(
     "https://github.com/BongJinK/Rentcar",
-    "/resources/images/cafe.png",
+    "/resources/images/RentCar.jpg",
     "Rent-Car Service",
     "Rent Vehicle Service",
     ['JSP','scriptlet','Java 11','Tomcat 9','MySQL', 'JQuery'],
