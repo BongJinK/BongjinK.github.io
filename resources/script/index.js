@@ -107,8 +107,19 @@ const Bank = new Project(
 
 addProject(Bank, "backend", "contain", "center");
 
+const rentCar = new Project(
+    "https://github.com/BongJinK/Rentcar",
+    "/resources/images/cafe.png",
+    "Rent-Car Service",
+    "Rent Vehicle Service",
+    ['JSP','scriptlet','Java 11','Tomcat 9','MySQL', 'JQuery'],
+    ['2023.04.4', "2023.04.10"]
+);
+
+addProject(rentCar, "backend", "contain", "center");
+
 const CafeProject = new Project(
-    "http://http://cafeproject.store/",
+    "http://cafeproject.store/",
     "/resources/images/cafe.png",
     "Cafe-Service",
     "Compose Coffee Clone",
@@ -118,7 +129,16 @@ const CafeProject = new Project(
 
 addProject(CafeProject, "backend", "contain", "center");
 
+const LaundryGarden = new Project(
+    "",
+    "/resources/images/LaundryGarden.png",
+    "LaundryGarden(세정원)",
+    "Non-face-to-face Laundry Service",
+    ['JSP','JSTL','Java 11','Tomcat 9','MySQL', 'JQuery'],
+    ['2023.04.27', "2023.05.15"]
+);
 
+addProject(LaundryGarden, "backend", "contain", "center");
 
 const bookSearch = new Project(
     "/booksearch",
