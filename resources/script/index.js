@@ -107,6 +107,17 @@ const Bank = new Project(
 
 addProject(Bank, "backend", "contain", "center");
 
+const CafeProject = new Project(
+    "http://http://cafeproject.store/",
+    "/resources/images/composecoffee.png",
+    "Cafe-Service",
+    "Compose Coffee Clone",
+    ['JSP','JSTL','Java 11','Tomcat 9','MySQL', 'JQuery'],
+    ['2023.04.10', "2023.04.24"]
+);
+
+addProject(CafeProject, "backend", "contain", "center");
+
 
 
 const bookSearch = new Project(
