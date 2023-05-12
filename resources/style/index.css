@@ -93,6 +93,7 @@ hr {
     /* filter: grayscale(1); */
     background-size: cover;
     background-color: lightgrey;
+  
 }
 
 .projects article:hover {

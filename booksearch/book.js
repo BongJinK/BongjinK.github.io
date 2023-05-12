@@ -2,7 +2,7 @@
 
 // API : Application Programming Interface
 // ㄴ Open API : 다양한 기업에서 공익의 목적 또는 다른 이유로 무료로 인터페이스를 이용할 수 있게 제공
-// ㄴ Private API : 유로
+// ㄴ Private API : 유료
 
 // $. => jquery 약어
 // ajax
