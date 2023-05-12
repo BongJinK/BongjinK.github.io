@@ -93,8 +93,21 @@ const sample = new Project(
     ['2023.03.09', "2023.04.30"]
 );
 
-addProject(sample, "frontend", "cover", "center");
+addProject(sample, "backend", "cover", "center");
 */
+
+const Bank = new Project(
+    "https://github.com/BongJinK/atm",
+    "/resources/images/ATM.png",
+    "Bank",
+    "Java mini project : ATM",
+    ['Java'],
+    ['2023.03.14', "2023.03.19"]
+);
+
+addProject(Bank, "backend", "contain", "center");
+
+
 
 const bookSearch = new Project(
     "/booksearch",
