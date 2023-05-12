@@ -107,6 +107,17 @@ const Bank = new Project(
 
 addProject(Bank, "backend", "contain", "center");
 
+const ConsoleGame = new Project(
+    "https://github.com/BongJinK/dungeon",
+    "/resources/images/ConsoleGame.jpg",
+    "Console Game",
+    "Java mini project : 봉진이 키우기",
+    ['Java'],
+    ['2023.03.27', "2023.04.02"]
+);
+
+addProject(ConsoleGame, "backend", "contain", "center");
+
 const rentCar = new Project(
     "https://github.com/BongJinK/Rentcar",
     "/resources/images/RentCar.jpg",
