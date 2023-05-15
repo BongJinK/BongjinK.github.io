@@ -141,11 +141,11 @@ const CafeProject = new Project(
 addProject(CafeProject, "backend", "contain", "center");
 
 const LaundryGarden = new Project(
-    "",
+    "https://laundrygarden.store/",
     "/resources/images/LaundryGarden.png",
     "LaundryGarden(세정원)",
     "Non-face-to-face Laundry Service",
-    ['JSP','JSTL','Java 11','Tomcat 9','MySQL', 'JQuery'],
+    ['JSP','JSTL','Spring Boot','Spring MVC','JPA','Java 11','Tomcat 9','MySQL', 'JQuery'],
     ['2023.04.27', "2023.05.15"]
 );
 
