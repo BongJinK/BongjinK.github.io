@@ -145,7 +145,7 @@ const LaundryGarden = new Project(
     "/resources/images/LaundryGarden.png",
     "LaundryGarden(세정원)",
     "Non-face-to-face Laundry Service",
-    ['JSP','JSTL','Spring Boot','Spring MVC','JPA','Java 11','Tomcat 9','MySQL', 'JQuery'],
+    ['JSP','JSTL','Spring Boot','Spring MVC','JPA','Java 11','Tomcat 9','MySQL', 'JQuery','KAKAOPAY API','KAKAO SOCIAL LOGIN','FIREBASE CMS','uploadcare'],
     ['2023.04.27', "2023.05.15"]
 );
 
